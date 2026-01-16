@@ -1,0 +1,33 @@
+{
+    "name": "patroclosh-bot",
+    "version": "1.0.0",
+    "description": "Bot de discord",
+    "keywords": [
+        "Bot",
+        "Patroclosh",
+        "DiscordJS",
+        "AlexEP11"
+    ],
+    "license": "ISC",
+    "author": "Alejandro Estrada Ponce",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "rimraf ./dist && tsc && tsc-alias",
+        "start": "npm run build && node dist/index.js"
+    },
+    "devDependencies": {
+        "@types/node": "^25.0.8",
+        "rimraf": "^6.1.2",
+        "tsc-alias": "^1.8.16",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "chalk": "^5.6.2",
+        "discord.js": "^14.25.1",
+        "dotenv": "^17.2.3",
+        "env-var": "^7.5.0"
+    }
+}
