@@ -21,32 +21,38 @@ export class Logger {
     }
 
     static info(message: string) {
-        console.log(chalk.cyan(`[${this.timestamp()}] | [INFO] | ${message}`));
+        console.log(
+            chalk.cyan(`[${this.timestamp()}] | [INFO]    | ${message}`),
+        );
     }
 
     static success(message: string) {
         console.log(
-            chalk.green(`[${this.timestamp()}] | [SUCCESS] | ${message}`)
+            chalk.green(`[${this.timestamp()}] | [SUCCESS] | ${message}`),
         );
     }
 
     static warn(message: string) {
         console.log(
-            chalk.yellow(`[${this.timestamp()}] | [WARNING] | ${message}`)
+            chalk.yellow(`[${this.timestamp()}] | [WARNING] | ${message}`),
         );
     }
 
     static error(error: unknown) {
         if (error instanceof Error) {
             console.error(
-                chalk.red(`[${this.timestamp()}] | [ERROR] | ${error.message}`)
+                chalk.red(
+                    `[${this.timestamp()}] | [ERROR]   | ${error.message}`,
+                ),
             );
             console.error(
-                chalk.red(`[${this.timestamp()}] | [ERROR] | ${error.stack}`)
+                chalk.red(`[${this.timestamp()}] | [ERROR]   | ${error.stack}`),
             );
         } else {
             console.error(
-                chalk.red(`[${this.timestamp()}] | [ERROR] | ${String(error)}`)
+                chalk.red(
+                    `[${this.timestamp()}] | [ERROR]   | ${String(error)}`,
+                ),
             );
         }
     }
