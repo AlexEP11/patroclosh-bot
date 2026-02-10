@@ -1,7 +1,11 @@
-import { client } from "configs/bot.config";
+import { client, player } from "configs/bot.config";
+import { DefaultExtractors } from "@discord-player/extractor";
+
 import { Logger } from "configs/Logger";
 import fs from "fs";
 import path from "path";
+import { YoutubeExtractor } from "discord-player-youtube";
+import { env } from "configs/env.config";
 
 export async function loadCommands() {
     const commands = [];
@@ -24,7 +28,7 @@ export async function loadCommands() {
                 commands.push(command.data.toJSON());
             } else {
                 Logger.warn(
-                    `The command at ${filePath} is missing "data" or "execute"`
+                    `The command at ${filePath} is missing "data" or "execute"`,
                 );
             }
         }
@@ -49,5 +53,19 @@ export async function loadEvents() {
         } else {
             client.on(event.name, (...args) => event.execute(...args));
         }
+    }
+}
+
+export async function loadPlayerExtractors() {
+    try {
+        await player.extractors.register(YoutubeExtractor, {
+            cookie: env.CK,
+        });
+
+        await player.extractors.loadMulti(DefaultExtractors);
+
+        Logger.success("✅  Player extractors loaded succesfully");
+    } catch (error) {
+        Logger.error(error);
     }
 }
