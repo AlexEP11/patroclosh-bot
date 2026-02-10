@@ -15,7 +15,7 @@ export default {
                 .setDescription("The number of message to delete [1 - 100].")
                 .setRequired(true)
                 .setMinValue(1)
-                .setMaxValue(100)
+                .setMaxValue(100),
         ),
 
     async execute(interaction: ChatInputCommandInteraction) {
