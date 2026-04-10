@@ -63,6 +63,10 @@ export async function loadPlayerExtractors() {
         });
 
         await player.extractors.loadMulti(DefaultExtractors);
+        // console.log(
+        //     "Extractores cargados:",
+        //     player.extractors.store.map((e) => e.identifier),
+        // );
 
         Logger.success("✅  Player extractors loaded succesfully");
     } catch (error) {
