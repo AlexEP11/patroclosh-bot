@@ -7,6 +7,7 @@ import {
 } from "utils/load.util";
 import { env } from "./env.config";
 import { Player } from "discord-player";
+import LeetCode from "leetcode-query";
 
 export const client = new Client({
     intents: [
@@ -20,6 +21,8 @@ export const client = new Client({
 export const player = new Player(client, {
     skipFFmpeg: false,
 });
+
+export const leetcode = new LeetCode();
 
 client.commands = new Collection();
 
